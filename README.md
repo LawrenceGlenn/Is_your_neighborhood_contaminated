@@ -28,4 +28,26 @@ My data was already free of null values and the like, but I did remove unneeded 
 # Process
 After understanding and looking through the data I did a hypothesis test comparison of the rate of hospital diagnosis (neoplasms) vs california wide neoplasim diagnosis rates, then isolated the hopsitals that have a rate so high they have a less than 0.5% chance of being from random chance. One of these hospitals was far higher than all others but it is a nationwide leader in cancer treatments so it is reasonable to assume that people are traveling to that location and can be dismissed as an outlier.
 
-![alt text](/img/FacilityVsCountOfNeoplasm_2009.png "")
+![alt text](/img/FacilityVsCountOfNeoplasm_2009.png "Facililties vs count of neoplasm diagnosis in 2009")
+
+![alt text](/img/FacilityVsNormalizedCountOfNeoplasm_2009.png "Facililties vs normalized count of neoplasm diagnosis in 2009")
+
+
+![alt text](/img/FacilityNormalizedCountOfNeoplasm_2009_2014.png "Facililties vs normalized count of neoplasm diagnosis in 2009 to 2014")
+
+
+
+![alt text](/img/FacilityNormalizedCountOfNeoplasm_2009_HighValues.png "Facililties vs normalized count of neoplasm diagnosis in 2009 only high values")
+
+![alt text](/img/FacilityNormalizedCountOfBirthDefects_2009_HighValues.png "Facililties vs normalized count of birth defects diagnosis in 2009 to 2014")
+
+calculated the mean and variance for all of california neoplasm diagnosis for 2009-2014
+neoplasm_all_CA_means_final = np.mean(neoplasm_all_CA_means)
+neoplasm_all_CA_var_final = np.var(neoplasm_all_CA_means)
+data_all = np.random.normal(neoplasm_all_CA_means_final, neoplasm_all_CA_var_final, size=1000)
+
+
+![alt text](/img/Yearly_Avg_All_California_2009_20015.png "Facililties vs normalized count of birth defects diagnosis in 2009 to 2014")
+
+
+![alt text](/img/CaliLocHighBirthDefectAndNeoplasm_2009.png "Facililties vs normalized count of birth defects diagnosis in 2009 to 2014")
