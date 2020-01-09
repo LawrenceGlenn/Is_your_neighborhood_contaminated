@@ -1,8 +1,28 @@
-# Is_your_neighborhood_contaminated
-An EDA analysis of the health and potential contamination of california neighborhoods by exploring hospital diagnosis.
+# Is Your Neighborhood Contaminated?
+###An EDA analysis of the health and potential contamination of california neighborhoods by exploring hospital diagnosis rates.
+### By Lawrence Glenn
 
+## Links to Presentation
+[Is your neighborhood contaminated?](www.???????)
 
-# DATA
+## Table Of Contents
+- [Introduction](#Introduction)
+- [Overview of the Data](#Data-Overview)
+- [Exploratory Data Analysis](#Exploratory-Data-Analysis)
+- [Data Pipeline](#Data-Pipeline)
+- [Model Selection](#Model-Selection)
+- [Deep Learning](#Deep-Learning)
+- [Emotional Analysis](#Emotional-Analysis)
+- [Wordclouds](#WordClouds)
+- [Conclusion and Next Steps](#Conclusion-and-Next-Steps)
+
+## Introduction
+
+According to the World Health Organization global rates of chronic dieseases are increasing and expected to reach 57% by 2020. Similarly cancer rates continue to increase, as well incidences of autoimmune disease. With facts like that it is more important than ever to determine the causes of these conditions and one thing they all have in common is that they can be brought about by environmental conditions.
+
+We can gain insight in factors effecting local health y looking at the rate of certain diagnosis in local hospitals. This helps people from individuals trying to decide where to move, to alerting the EPA to locations with possible issues, informing realtors on factors that should influence housing prices, and letting insurance companies know if they should raise or lower rates in certain regions. After all who wouldn't want to know if their neighborhood was contaminated?
+
+# DATA Overview
 my data comes from census.gov, epa.gov, or data.chhs.ca.gov
 my fields include 
 Year 	OSHPD ID 	Facility Name 	Type of Control 	County Name 	Principal Diagnosis Group 	Count
@@ -20,7 +40,7 @@ the different types of diagnosis are
        'Symptoms', 'Injuries/Drugs/Complications',
        'Other Reasons for Health Services', 'Perinatal Disorders',
        'Births']
-
+### Limitations
 
 # Cleaning
 My data was already free of null values and the like, but I did remove unneeded info (like accidents) and combined info I needed together (like adding longitude and latitude of hospitals)
