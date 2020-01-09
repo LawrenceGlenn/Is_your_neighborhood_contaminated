@@ -10,7 +10,8 @@
 - [Overview of the Data](#Data-Overview)
 - [Initial Exploratory Data Analysis](#Initial-Exploratory-Data-Analysis)
 - [U-Testing](#U-Testing)
-- [Conclusion and Next Steps](#Conclusion-and-Next-Steps)
+- [Conclusions](#Conclusions)
+- [Going Foward](#Going-Forward)
 
 ## Introduction
 
@@ -100,3 +101,20 @@ Here is a comparative graph all those diagnosis at once from 2009-2014 using the
 
 As we can see there is high concentration of multiple conditions near Los Angeles and to a less extent, San Francisco
 
+## Conclusions
+
+There are many things that we can infer from this information. The most obvious is that major cities are the least healthy locations and more than likely have several factors influencing contamination and health of people who live there.
+
+Its also worth noting the even among major cities Los Angeles is particularly unhealthy.
+
+Something also interesting is there is consistently high values for neoplasms and endcrine diagnosis near redding, a much smaller location with lower density of hospitals than other locations with large values. This could mean there are health issues to investigate near that location.
+
+### Limitations
+
+This approach assumes that people generally visit whatever hospital is nearest to where they live or work. It lacks information outside of california so values near the boarder may be disporportionally effected. Also we only have diagnosis catigories not individual diagnosis which would be far more instructive. There is also the problem that high density of hospitals could allow for more variation in which hospitals patients visit for a particular condition. Also These diagnosis are not nessicarily the first and only time someone is diagnosed with a condition, so there could be duplicates in the data skewing the results. There are also a large number of factors that our data doesn't adjust for, like income.
+
+## Going Forward
+
+Things we could try group the data based on county allowing us to look for larger disturbences, dealing with the hospital density problem.
+Compare the data to known health factors to see if they corralate (like air or water pollution maps)
+If more data could be located on wealth, or other states more factors could be accounted for.
