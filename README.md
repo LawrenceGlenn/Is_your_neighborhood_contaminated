@@ -55,6 +55,25 @@ Since the data includes the number of patients that recieved a diagnosis but not
 
 We are most interested in conditions that have a large environmental causal factor so we will focus our analysis on the catagories Neoplasms, Endocrine/Metabolism, Nervous & Sensory Systems, and Congenital Anomalies (Birth Defects)
 
+
+![alt text](/img/TotalPatientsVsDiagnosis.png "")
+Here we have total patients comapred to diagnosis rates. As we can see the rate change is largely flat, this suggests that our normalized rates don't change much just because more people attend the hospital, which is exactly what we would want to see. There is a large spike in the begining of each chart but we would expect more variation at smaller sample sizes. Lets just zoom in to be sure.
+
+
+![alt text](/img/TotalPatientsVsDiagnosisZoom.png "")
+We don't have anything too strange (like values at a count of 0) and the lower sample counts will simply lower our confidence in future analysis. Nothing to worry about.
+
+
+![alt text](/img/ControlTypeVsDiagnosis.png "")
+Next we have the type of control of hospitals vs the normalized diagnosis. It seems that there are higher rates of neoplasms, Edocrine conditions and somewhat birth defects at non profit hospitals. This may have something to do with non profits being more available in lower income regions which also tend to be less healthy. There is an interesting spike of nervous and sensory system conditions at investor led hospitals. Perhaps those types of diagnosis are more profitable to diagnose? This would be an interesting deep dive for an EDA focused on income inequality and health but for our purposes we will simply make note of it and move on.
+
+![alt text](/img/CountyVsDiagnosis.png "")
+Above is a graph of the Various counties of California and their diagnosis rates. Its a bit crowded so lets focus on only those counties which have a higher rate.
+
+![alt text](/img/CountyVsDiagnosisZoom.png "")
+Here we can see that certain counties are probably less healthy than others. Los Angeles, Orange County, Fresno, and San Bernandino counties have much higher rates of Neoplasms, Nervous system, Endocrine, and Birth defect rates respectively. We will anaylize this health information by location and attempt to determine which areas have the largest problems. Why different counties have higher rates of very specific conditions is an interesting fact that will require more research to address.
+
+
 Below is a graph of Neoplasm rates for 2009-2014
 ![alt text](/img/FacilityNormalizedCountOfNeoplasm_2009_2014.png "Facililties vs normalized count of neoplasm diagnosis in 2009 to 2014")
 
