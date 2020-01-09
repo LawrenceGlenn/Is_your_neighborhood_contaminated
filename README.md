@@ -9,11 +9,7 @@
 - [Introduction](#Introduction)
 - [Overview of the Data](#Data-Overview)
 - [Initial Exploratory Data Analysis](#Initial-Exploratory-Data-Analysis)
-- [Data Pipeline](#Data-Pipeline)
-- [Model Selection](#Model-Selection)
-- [Deep Learning](#Deep-Learning)
-- [Emotional Analysis](#Emotional-Analysis)
-- [Wordclouds](#WordClouds)
+- [U-Testing](#U-Testing)
 - [Conclusion and Next Steps](#Conclusion-and-Next-Steps)
 
 ## Introduction
@@ -27,7 +23,13 @@ My data comes from census.gov, epa.gov, or data.chhs.ca.gov
 These sources have very clean entries thought many of them have to be combined to provide a more complete view
 
 My primary source was a list of diagnosis groups from california hospital and included the features:
-* Year * OSHPD ID * Facility Name * Type of Control * County Name * Principal Diagnosis Group *	Count
+* Year
+* OSHPD ID
+* Facility Name
+* Type of Control
+* County Name
+* Principal Diagnosis Group
+* Count
 
 By adding data from California's Office of Statewide Health Planning and Development I was about to add Longitude and Latitude of each hospital to this data.
 
@@ -80,41 +82,21 @@ Neoplasm, Endocrine/Metabolism, and Nervous System rates (only highest, non filt
 we can see that Endocrine diagnosis spike after 2013 at the Fresno Heart and Surgical Hospital. Nervous System Diagnosis also raise since 2010 at Healthbridge Children's Hopsital-Orange. This is only a few years so these may be anomolies but they are locations that if expanding out data we should keep an eye on.
 
 
+## U-Testing
 
+By looking at the data for every patient in california and their either being diagnosed with a particular condition or not we can treat everyone in California as a sample. Then doing the same but only for the patients at each hospital we can compare those samples to determine if the number of people being diagnosed with a condition at a location is highly unlikely as compared to the state as a whole.
 
+What follows is a map of the locations of hospitals that have a less than 0.5% likelihood of having such a high diagnosis rate by random chance. Though neoplasms, Nervous & Sensory Systems, and Edocine/Metabolism are displayed birth defects were also tested however with the exclusion of children hospitals there were no locations that had an unusually high rate of birth defects.
 
+![alt text](/img/Diagnosis_2009_2014_onCalifornia.png "")
 
+It is important to note that this showed 2009-2014 with a low alpha for each "hit" so we can see how consistant high diagnosis were at a location based on how solid the location looks and the size of a "hit" is purportional to how extreme the diagnosis rate was.
 
+Another approach was also used for birth defect analysis, to compare only childrens hospitals since people would be most likely to take a child to their nearest childrens hospital if they had a serious birth defect. Unfortunately that limits the available data to only 6 locations and makes drawing statistically significant conclusions difficult.
 
+Here is a comparative graph all those diagnosis at once from 2009-2014 using the same size and alpha dot scheme as the previous graph
 
+![alt text](/img/CaliLocHighBirthDefectAndNeoplasm_2009_2014_overlapped.png "")
 
+As we can see there is high concentration of multiple conditions near Los Angeles and to a less extent, San Francisco
 
-
-
-
-After understanding and looking through the data I did a hypothesis test comparison of the rate of hospital diagnosis (neoplasms) vs california wide neoplasim diagnosis rates, then isolated the hopsitals that have a rate so high they have a less than 0.5% chance of being from random chance. One of these hospitals was far higher than all others but it is a nationwide leader in cancer treatments so it is reasonable to assume that people are traveling to that location and can be dismissed as an outlier.
-
-Facililties vs count of neoplasm diagnosis in 2009
-![alt text](/img/FacilityVsCountOfNeoplasm_2009.png "Facililties vs count of neoplasm diagnosis in 2009")
-
-Facililties vs normalized count of neoplasm diagnosis in 2009
-![alt text](/img/FacilityVsNormalizedCountOfNeoplasm_2009.png "Facililties vs normalized count of neoplasm diagnosis in 2009")
-
-
-Facililties vs normalized count of neoplasm diagnosis in 2009 only high values
-![alt text](/img/FacilityVsNormalizedCountOfNeoplasm_2009_HighValues.png "Facililties vs normalized count of neoplasm diagnosis in 2009 only high values")
-
-Facililties vs normalized count of birth defects diagnosis in 2009 to 2014 only high values
-![alt text](/img/FacilityVsNormalizedCountOfBirthDefects_2009_HighValues.png "Facililties vs normalized count of birth defects diagnosis in 2009 to 2014 only high values")
-
-calculated the mean and variance for all of california neoplasm diagnosis for 2009-2014
-neoplasm_all_CA_means_final = np.mean(neoplasm_all_CA_means)
-neoplasm_all_CA_var_final = np.var(neoplasm_all_CA_means)
-data_all = np.random.normal(neoplasm_all_CA_means_final, neoplasm_all_CA_var_final, size=1000)
-
-
-yearly average of neoplasm diagnosis in california from 2009 ro 2015
-![alt text](/img/Yearly_Avg_All_California_2009_20015.png "yearly average of neoplasm diagnosis in california from 2009 ro 2015")
-
-Map of Califonia, blue is locations of high neoplasm diagnosis, yellow is high birth defect rate
-![alt text](/img/CaliLocHighBirthDefectAndNeoplasm_2009.png "Map of Califonia, blue is locations of high neoplasm diagnosis, yellow is high birth defect rate")
