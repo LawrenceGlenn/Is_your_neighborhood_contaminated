@@ -106,6 +106,8 @@ we can see that Endocrine diagnosis spike after 2013 at the Fresno Heart and Sur
 
 By looking at the data for every patient in california and their either being diagnosed with a particular condition or not we can treat everyone in California as a sample. Then doing the same but only for the patients at each hospital we can compare those samples to determine if the number of people being diagnosed with a condition at a location is highly unlikely as compared to the state as a whole.
 
+I selected the U test because I had the available processing power and U testing has no distirubtion assumptions. I believe that a T test would also have been valid since the average of these values would be a normal distribution I decided that a U test would be more through.
+
 What follows is a map of the locations of hospitals that have a less than 0.5% likelihood of having such a high diagnosis rate by random chance. Though neoplasms, Nervous & Sensory Systems, and Edocine/Metabolism are displayed birth defects were also tested however with the exclusion of children hospitals there were no locations that had an unusually high rate of birth defects.
 
 ![alt text](/img/Diagnosis_2009_2014_onCalifornia.png "")
