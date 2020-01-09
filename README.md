@@ -1,6 +1,6 @@
 # Is Your Neighborhood Contaminated?
-###An EDA analysis of the health and potential contamination of california neighborhoods by exploring hospital diagnosis rates.
-### By Lawrence Glenn
+#### An EDA analysis of the health and potential contamination of california neighborhoods by exploring hospital diagnosis rates.
+#### By Lawrence Glenn
 
 ## Links to Presentation
 [Is your neighborhood contaminated?](www.???????)
@@ -18,20 +18,23 @@
 
 ## Introduction
 
-According to the World Health Organization global rates of chronic dieseases are increasing and expected to reach 57% by 2020. Similarly cancer rates continue to increase, as well incidences of autoimmune disease. With facts like that it is more important than ever to determine the causes of these conditions and one thing they all have in common is that they can be brought about by environmental conditions.
+According to the World Health Organization global rates of chronic dieseases are increasing and expected to reach 57% by 2020. Similarly cancer rates continue to increase, as well incidences of autoimmune conditions. With facts like that it is more important than ever to determine the causes of these conditions and one thing they all have in common is that they can be brought about by environmental conditions.
 
 We can gain insight in factors effecting local health y looking at the rate of certain diagnosis in local hospitals. This helps people from individuals trying to decide where to move, to alerting the EPA to locations with possible issues, informing realtors on factors that should influence housing prices, and letting insurance companies know if they should raise or lower rates in certain regions. After all who wouldn't want to know if their neighborhood was contaminated?
 
-# DATA Overview
-my data comes from census.gov, epa.gov, or data.chhs.ca.gov
-my fields include 
-Year 	OSHPD ID 	Facility Name 	Type of Control 	County Name 	Principal Diagnosis Group 	Count
+## DATA Overview
+My data comes from census.gov, epa.gov, or data.chhs.ca.gov
+These sources have very clean entries thought many of them have to be combined to provide a more complete view
 
-I've added Longitude and Latitude to this initial data set.
+My primary source was a list of diagnosis groups from california hospital and included the features:
+| Year | OSHPD ID | Facility Name | Type of Control | County Name | Principal Diagnosis Group |	Count |
+| ---- | -------- | ------------- | --------------- | ----------- | ------------------------- | ----- |
 
-there are >40000 entries from more than 500 diffierent hospitals across california from 2009-2014
+By adding data from California's Office of Statewide Health Planning and Development I was about to add Longitude and Latitude of each hospital to this data.
 
-the different types of diagnosis are 
+This primary data has more than 40000 entries from more than 500 diffierent hospitals across california during the time period 2009-2014
+
+One of the things we will be most interested in are the different types of diagnosis which are 
 ['Infections', 'Neoplasms', 'Endocrine/Metabolism',
        'Blood/Blood-forming Organs', 'Psychoses & Neurosis',
        'Nervous & Sensory Systems', 'Circulatory', 'Respiratory',
@@ -40,10 +43,9 @@ the different types of diagnosis are
        'Symptoms', 'Injuries/Drugs/Complications',
        'Other Reasons for Health Services', 'Perinatal Disorders',
        'Births']
-### Limitations
 
-# Cleaning
-My data was already free of null values and the like, but I did remove unneeded info (like accidents) and combined info I needed together (like adding longitude and latitude of hospitals)
+### Limitations
+This data only includes information from California, which can limit our understanding, especially for locations that are near a boarder. Patients could be coming from or going to locations outside the state. Likewise the data only includes OSHPD certified hospitals, which is almost all health providers in California but doesn't include some private locations such as the Shriners hospitals. To conform to HIPPA limitations our data doesn't list individual patients but rather the total number of patients who recieved a given diagnosis catigory at each hospital per year.
 
 # Process
 After understanding and looking through the data I did a hypothesis test comparison of the rate of hospital diagnosis (neoplasms) vs california wide neoplasim diagnosis rates, then isolated the hopsitals that have a rate so high they have a less than 0.5% chance of being from random chance. One of these hospitals was far higher than all others but it is a nationwide leader in cancer treatments so it is reasonable to assume that people are traveling to that location and can be dismissed as an outlier.
