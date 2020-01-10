@@ -10,6 +10,8 @@
 - [Overview of the Data](#Data-Overview)
 - [Initial Exploratory Data Analysis](#Initial-Exploratory-Data-Analysis)
 - [U-Testing](#U-Testing)
+- [T-Test Comparison](#T-Test-Comparison)
+- [County Analysis](#County-Analysis)
 - [Conclusions](#Conclusions)
 - [Going Foward](#Going-Forward)
 
@@ -104,11 +106,15 @@ we can see that Endocrine diagnosis spike after 2013 at the Fresno Heart and Sur
 
 ## U-Testing
 
+Null Hypothesis: A patient at a hospital is diagnosed with a condition at the same or lower rate then a patient in the rest of california
+Alternate Hypothesis: A patient is diagnosed with a condition at a higher rate than the rest of california
+Alpha = .05
+
 By looking at the data for every patient in california and their either being diagnosed with a particular condition or not we can treat everyone in California as a sample. Then doing the same but only for the patients at each hospital we can compare those samples to determine if the number of people being diagnosed with a condition at a location is highly unlikely as compared to the state as a whole.
 
 I selected the U test because I had the available processing power and U testing has no distirubtion assumptions. I believe that a T test would also have been valid since the average of these values would be a normal distribution I decided that a U test would be more through.
 
-What follows is a map of the locations of hospitals that have a less than 0.5% likelihood of having such a high diagnosis rate by random chance. Though neoplasms, Nervous & Sensory Systems, and Edocine/Metabolism are displayed birth defects were also tested however with the exclusion of children hospitals there were no locations that had an unusually high rate of birth defects.
+What follows is a map of the locations of hospitals that have a less than 0.5% likelihood of having such a high diagnosis rate by random chance. Though neoplasms, Nervous & Sensory Systems, Edocine/Metabolism and birth defects are displayed. 
 
 ![alt text](/img/Diagnosis_2009_2014_onCalifornia.png "")
 
@@ -122,20 +128,44 @@ Here is a comparative graph all those diagnosis at once from 2009-2014 using the
 
 As we can see there is high concentration of multiple conditions near Los Angeles and to a less extent, San Francisco
 
+## T-Test-Comparison
+
+The same samples were used on a T test and the results compared. There were only a handful of values that differed, as displayed below.
+
+![alt text](/img/T_U_Diff_Map.png "")
+
+This shows that the varience between the approachs was very small. The main difference between the tests is the T test assumes a normal distribution (which the data should be) and the U test does not. We can be fairly confident in our U test results however it is interesting to note that most of the values that differ were endocrine diagnosis. This may suggest that their results are just barely defeating our null hypothosis and perhaps we should give them a more critical look than the others.
+
+## County Analysis
+
+Taking the same U test aproach used above we can create samples from every county rather than every hospital and compare it to the rest of the state. After performing this consolidation we observed no diagnosis rates that were higher than the state by a statistically significant margin for Endocrine, Nervous System, and birth defects.
+
+This may be the result of our data not being detailed enough to provide adaquit information on the counties. May counties do not even have a hospital in them, which will alter the overall result quite a bit.
+
+We do however see a county level variation of neoplasm diagnosis, shown below
+
+![alt text](/img/neoplasm_by_county.png "")
+
+As we can see there is still a large effect in some areas, especially in the Los Angeles region. It is possible that there are smaller loctations that have large health concerns but not enough population to effect the values of the county. It is also possible that the counties that have high values are because of localized conditions that are very bad and the rest of the county is relatively unaffected.
+
+Combining the data from this and the hospital level it is reasonable to conclude that Los Angeles and to a lesser extent the bay area are not healthy places to live. Other locations like San Diego or more isolated hot spots may be from more random flutuations or data limitations.
+
 ## Conclusions
 
 There are many things that we can infer from this information. The most obvious is that major cities are the least healthy locations and more than likely have several factors influencing contamination and health of people who live there.
 
-Its also worth noting the even among major cities Los Angeles is particularly unhealthy.
+Its also worth noting the even among major cities Los Angeles is particularly unhealthy. However it seems almost every hospital has a high rate of at least one of the conditions, so it is possible that our data is too broad (only the sum of diagnosis catigories per year) if draw detailed conclusions.
 
 Something also interesting is there is consistently high values for neoplasms and endcrine diagnosis near redding, a much smaller location with lower density of hospitals than other locations with large values. This could mean there are health issues to investigate near that location.
 
 ### Limitations
 
-This approach assumes that people generally visit whatever hospital is nearest to where they live or work. It lacks information outside of california so values near the boarder may be disporportionally effected. Also we only have diagnosis catigories not individual diagnosis which would be far more instructive. There is also the problem that high density of hospitals could allow for more variation in which hospitals patients visit for a particular condition. Also These diagnosis are not nessicarily the first and only time someone is diagnosed with a condition, so there could be duplicates in the data skewing the results. There are also a large number of factors that our data doesn't adjust for, like income.
+This approach assumes that people generally visit whatever hospital is nearest to where they live or work. It lacks information outside of california so values near the boarder may be disporportionally effected. Also we only have diagnosis catigories not individual diagnosis which would be far more instructive. There is also the problem that high density of hospitals could allow for more variation in which hospitals patients visit for a particular condition. Also These diagnosis are not nessicarily the first and only time someone is diagnosed with a condition, so there could be duplicates in the data skewing the results. There is also the limitation of the data coming only from hospitals. This will poorly reporesent all population that do not have access to full hospital facilities. There are also a large number of factors that our data doesn't adjust for, like income.
 
 ## Going Forward
 
-Things we could try group the data based on county allowing us to look for larger disturbences, dealing with the hospital density problem.
 Compare the data to known health factors to see if they corralate (like air or water pollution maps)
 If more data could be located on wealth, or other states more factors could be accounted for.
+A machine learning algorithm coudl be used to try to find unnoticed connections within the data.
+A greater granularity of data from more sources (such as doctors offices) could go a long way to providing more accurate estimations.
+Natural language processesing could be used to analyze EPA reports and isolate known contamination events and use them as a learning basis for a supervised classifier AI.
